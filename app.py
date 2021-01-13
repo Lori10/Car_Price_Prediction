@@ -5,7 +5,8 @@ import pickle
 import numpy as np
 import sklearn
 from sklearn.preprocessing import StandardScaler
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
+app.config['EXPLAIN_TEMPLATE_LOADING']=True
 model = pickle.load(open('gradient_boosting.pkl', 'rb'))
 @app.route('/',methods=['GET'])
 def Home():
